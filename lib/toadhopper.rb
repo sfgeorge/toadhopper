@@ -106,8 +106,13 @@ class Toadhopper
   #
   # @return [Response]
   def post!(error, options={}, http_headers={})
-    options[:notifier_name] ||= 'Toadhopper'
-    post_document(document_for(error, options), {'X-Airbrake-Client-Name' => options[:notifier_name]})
+    begin
+      options[:notifier_name] ||= 'Toadhopper'
+      post_document(document_for(error, options), {'X-Airbrake-Client-Name' => options[:notifier_name]})
+    rescue StandardError => e
+      puts "OH SNAP!! #{e}"
+      raise
+    end
   end
 
   # Posts a deployment notification
