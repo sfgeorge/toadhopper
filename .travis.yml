@@ -13,7 +13,7 @@ rvm:
 
 before_install:
  - sudo apt-get update
- - sudo apt-get install libxml2
+ - sudo apt-get install libz libiconv libxml2
 
 notifications:
   email:
