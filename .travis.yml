@@ -11,6 +11,10 @@ rvm:
   - ruby-head
   - jruby-head
 
+before_install:
+ - sudo apt-get update
+ - sudo apt-get install libxml2
+
 notifications:
   email:
     - sfgeorge-toadhopper-turtle.testudo12@wronghead.com
